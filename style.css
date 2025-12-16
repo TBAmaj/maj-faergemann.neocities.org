@@ -333,8 +333,9 @@ hr {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
-    touch-action: pan-y; /* Allow vertical scrolling only */
-    user-select: none; 
+    touch-action: pan-y;
+    /* Allow vertical scrolling only */
+    user-select: none;
 }
 
 
@@ -349,24 +350,30 @@ hr {
 /* SLIDES CONTAINER: Flex layout for horizontal sliding (created by JavaScript) */
 .slides-container {
     display: flex;
-    width: 100%; /* Will be overridden by JavaScript to accommodate all slides */
+    width: 100%;
+    /* Will be overridden by JavaScript to accommodate all slides */
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
-    height: 100%; /* Take full height of slideshow */
+    height: 100%;
+    /* Take full height of slideshow */
 }
 
 /* INDIVIDUAL SLIDES: When inside slides-container */
 .slides-container .mySlides {
-    flex: 0 0 auto; /* Don't grow or shrink, use content size */
-    width: 100%; /* Will be overridden by JavaScript based on slide count */
-    display: block !important; /* Override active/inactive display logic */
+    flex: 0 0 auto;
+    /* Don't grow or shrink, use content size */
+    width: 100%;
+    /* Will be overridden by JavaScript based on slide count */
+    display: block !important;
+    /* Override active/inactive display logic */
     position: relative;
 }
 
 /* IMAGES AND VIDEOS: Prevent dragging and maintain aspect ratio */
 .slides-container .mySlides img,
 .slides-container .mySlides video {
-    pointer-events: none; /* Prevent image dragging during swipe */
+    pointer-events: none;
+    /* Prevent image dragging during swipe */
     user-select: none;
     -webkit-user-drag: none;
     width: 100%;
@@ -612,6 +619,7 @@ hr {
     .sticky-nav {
         display: none;
     }
+
     .sticky-nav-container {
         display: none;
     }
@@ -671,7 +679,7 @@ hr {
         margin-bottom: 15px;
         line-height: 1.1;
     }
-    
+
     .sticky-nav {
         position: sticky;
         top: -10px;
@@ -684,15 +692,18 @@ hr {
         display: block;
         margin: 0;
         box-sizing: border-box;
-        
+
         /* Add extra background coverage */
         background-clip: padding-box;
-        border-top: 1px solid #fff; /* Extra white coverage above */
+        border-top: 1px solid #fff;
+        /* Extra white coverage above */
     }
-        .sticky-nav::before {
+
+    .sticky-nav::before {
         content: '';
         position: absolute;
-        top: -10px; /* Extend above the navigation */
+        top: -10px;
+        /* Extend above the navigation */
         left: 0;
         right: 0;
         height: 10px;
@@ -704,7 +715,7 @@ hr {
     .sticky-nav .nav-item {
         display: inline-block;
         margin: 0;
-             background: #fff;
+        background: #fff;
     }
 
     .sticky-nav .nav-item a {
@@ -712,11 +723,11 @@ hr {
         padding: 8px 12px;
         display: inline-block;
         font-weight: bold;
-             background: #fff;
+        background: #fff;
     }
 
     /* Hide original nav items in header */
-    .nav{
+    .nav {
         display: none;
     }
 
@@ -751,8 +762,8 @@ hr {
         margin: 0 0 30px 0;
         padding: 0;
         display: block;
-       height: auto;
-       box-sizing: border-box;
+        height: auto;
+        box-sizing: border-box;
     }
 
     /* SLIDESHOW: Smaller height for mobile */
@@ -761,54 +772,60 @@ hr {
         height: auto;
         margin: 0 auto 15px auto;
         display: block;
-         -webkit-overflow-scrolling: touch;
-        transform: translateZ(0); /* Hardware acceleration */
+        -webkit-overflow-scrolling: touch;
+        transform: translateZ(0);
+        /* Hardware acceleration */
 
     }
 
     .slides-container {
-        transform: translateZ(0); /* Hardware acceleration */
+        transform: translateZ(0);
+        /* Hardware acceleration */
         backface-visibility: hidden;
     }
-    
+
     .slides-container .mySlides {
-        transform: translateZ(0); /* Hardware acceleration */
+        transform: translateZ(0);
+        /* Hardware acceleration */
     }
-    
+
     /* Maintain tall aspect ratio on mobile */
     .slides-container .mySlides img,
     .slides-container .mySlides video {
-        aspect-ratio: 4/5; /* Keep the tall format */
+        aspect-ratio: 4/5;
+        /* Keep the tall format */
         max-height: 60vh;
         min-height: 200px;
     }
 
 
-/* PERFORMANCE OPTIMIZATIONS: Hardware acceleration */
-.slideshow,
-.slides-container,
-.slides-container .mySlides {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
+    /* PERFORMANCE OPTIMIZATIONS: Hardware acceleration */
+    .slideshow,
+    .slides-container,
+    .slides-container .mySlides {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+    }
 
-/* ENSURE ORIGINAL SLIDES STILL WORK: When not using touch functionality */
-.slideshow:not(:has(.slides-container)) .mySlides {
-    /* Fallback styles for browsers that don't support touch or when JS doesn't run */
-    display: none;
-}
+    /* ENSURE ORIGINAL SLIDES STILL WORK: When not using touch functionality */
+    .slideshow:not(:has(.slides-container)) .mySlides {
+        /* Fallback styles for browsers that don't support touch or when JS doesn't run */
+        display: none;
+    }
 
-.slideshow:not(:has(.slides-container)) .mySlides.active {
-    display: block;
-}
-    .mySlides{
+    .slideshow:not(:has(.slides-container)) .mySlides.active {
+        display: block;
+    }
+
+    .mySlides {
         height: auto;
         display: none;
         width: 100%;
-        aspect-ratio: 4/5; /* Maintain tall format */
+        aspect-ratio: 4/5;
+        /* Maintain tall format */
     }
 
     .mySlides.active {
@@ -822,33 +839,39 @@ hr {
         height: auto;
         display: block;
         object-fit: cover;
-        object-position: center; 
-        aspect-ratio: 4/5; /* Maintain consistent ratio */
-        max-height: 70vh; /* Limit height on mobile */
-        min-height: 200px; /* Minimum readable size */
+        object-position: center;
+        aspect-ratio: 4/5;
+        /* Maintain consistent ratio */
+        max-height: 70vh;
+        /* Limit height on mobile */
+        min-height: 200px;
+        /* Minimum readable size */
     }
 
     /* Remove the fixed aspect ratio container */
     .artwork .slideshow {
-        
-            max-width: 400px;
-    max-height: 500px;
-    overflow: hidden;
-    margin: 0 auto;
-    aspect-ratio: 4 / 5;
-    
-        aspect-ratio: 4/5; /* Maintain the tall format */
-        max-height: 70vh; /* Limit container height on mobile */
+
+        max-width: 400px;
+        max-height: 500px;
+        overflow: hidden;
+        margin: 0 auto;
+        aspect-ratio: 4 / 5;
+
+        aspect-ratio: 4/5;
+        /* Maintain the tall format */
+        max-height: 70vh;
+        /* Limit container height on mobile */
         width: 100%;
         margin: 0 auto 15px auto;
     }
 
-     .slideshow {
+    .slideshow {
         width: 100%;
         height: auto;
         margin: 0 auto 15px auto;
         display: block;
-        aspect-ratio: 4/5; /* Ensure slideshow keeps tall format */
+        aspect-ratio: 4/5;
+        /* Ensure slideshow keeps tall format */
     }
 
     /* SLIDESHOW CONTROLS: Larger touch targets */
@@ -898,7 +921,7 @@ hr {
     }
 
     /* MODAL: Full screen on mobile */
- 
+
     .close {
         position: fixed;
         font-size: 28px;
