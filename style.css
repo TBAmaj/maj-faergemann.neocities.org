@@ -782,7 +782,7 @@ hr {
         max-height: 60vh;
         min-height: 200px;
     }
-}
+
 
 /* PERFORMANCE OPTIMIZATIONS: Hardware acceleration */
 .slideshow,
@@ -803,7 +803,7 @@ hr {
 
 .slideshow:not(:has(.slides-container)) .mySlides.active {
     display: block;
-
+}
     .mySlides{
         height: auto;
         display: none;
@@ -830,6 +830,13 @@ hr {
 
     /* Remove the fixed aspect ratio container */
     .artwork .slideshow {
+        
+            max-width: 400px;
+    max-height: 500px;
+    overflow: hidden;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+    
         aspect-ratio: 4/5; /* Maintain the tall format */
         max-height: 70vh; /* Limit container height on mobile */
         width: 100%;
@@ -1021,6 +1028,5 @@ hr {
         margin-top: 5px;
     }
 }
-
 
 /* #endregion RESPONSIVE DESIGN - MOBILE & TABLET */
