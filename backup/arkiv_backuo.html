@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Arkiv | Maj Færgemann</title>
+<link rel="stylesheet" type="text/css" href="style_backup.css">
+<meta charset="UTF-8">
+</head>
+<body>
+
+<table>
+<tr>
+        <td class="nav">
+          <div style="margin-bottom: 40px;">
+            <h1>MAJ<br>FÆRGEMANN</h1>
+          </div>
+          
+          <div class="nav-item"><a href="index.html">STARTSIDE</a></div>
+          <div class="nav-item"><a href="portfolio.html">ARKIV</a></div>
+          <div class="nav-item"><a href="cv.html">CV</a></div>
+          <div class="nav-item"><a href="contact.html">KONTAKT</a></div>
+          
+          <div style="margin-top: 100px; font-size: 10px;">
+            contemporary<br>
+            artist
+          </div>
+        </td>
+    
+    <td class="content">
+      <h2>ARBEJDER</h2>
+      
+      <div class="filter">
+        FILTER: <a href="#">ALL</a> <a href="#">SHAMPOOOPERA</a> <a href="#">SKOLEKUNST & KUNSTSKOLER</a> <a href="#">GAMIFICATION</a> <a href="#">APPLIED THEATRE</a>
+      </div>
+
+  </div>
+      </div>
+      
+      <div class="gallery">
+
+      <!-- Slideshow container -->
+      <div class="artwork">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides">
+          <img src="artwork1.jpg" alt="Artwork 1">
+        </div>
+
+        <div class="mySlides">
+        <img src="artwork2.jpg" alt="Artwork 2">
+        </div>
+
+        <div class="mySlides">
+        <img src="artwork3.jpg" alt="Artwork 3">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="caption">Skolekunst & Kunstskoler</div>
+      </div>
+
+
+
+        <div class="artwork">
+          <img src="skolekunst&kunstskoler.jpg" alt="Artwork 1">
+          <div class="caption">Skolekunst & Kunstskoler</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=400&width=300" alt="Artwork 2">
+          <div class="caption">SKOLEKUNST & KUNSTSKOLER,Composition in Blue, 2022. Mixed media, 60 x 75 cm</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=300&width=300" alt="Artwork 3">
+          <div class="caption">Urban Fragments, 2023. Photography, dimensions variable</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=400&width=300" alt="Artwork 4">
+          <div class="caption">Reflections, 2021. Watercolor, 30 x 40 cm</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=300&width=300" alt="Artwork 5">
+          <div class="caption">Structural Study, 2022. Charcoal on paper, 50 x 65 cm</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=400&width=300" alt="Artwork 6">
+          <div class="caption">Ephemeral Moments, 2023. Digital collage, dimensions variable</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=300&width=300" alt="Artwork 7">
+          <div class="caption">Spatial Construct No. 3, 2022. Mixed media installation, dimensions variable</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=400&width=300" alt="Artwork 8">
+          <div class="caption">Fragmented Memory, 2023. Oil and collage on canvas, 90 x 120 cm</div>
+        </div>
+        
+        <div class="artwork">
+          <img src="/placeholder.svg?height=300&width=300" alt="Artwork 9">
+          <div class="caption">Temporal Shift, 2022. Video installation, dimensions variable</div>
+        </div>
+
+        <div class="artwork">
+            <img src="/placeholder.svg?height=300&width=300" alt="Artwork 10">
+            <div class="caption">Temporal Shift, 2022. Video installation, dimensions variable</div>
+          </div>
+        
+      </div>
+
+  <!-- JAVA script for slideshows -->
+  <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+      
+      <h2>SERIES</h2>
+      
+      <div class="series">
+        <div class="series-title">Urban Memory (2021-2023)</div>
+        <div class="series-desc">A series exploring the layered histories of urban environments through photography, painting, and mixed media works. This ongoing project examines how collective memory shapes our experience of built environments.</div>
+        <img src="/placeholder.svg?height=400&width=600" alt="Urban Memory Series">
+      </div>
+      
+      <div class="series">
+        <div class="series-title">Temporal Fragments (2020-2022)</div>
+        <div class="series-desc">This series investigates the fragmentation of time and memory through abstract compositions that layer materials, textures, and imagery. The works create visual palimpsests that speak to the impermanence of experience.</div>
+        <img src="/placeholder.svg?height=400&width=600" alt="Temporal Fragments Series">
+      </div>
+      
+      <div class="footer">
+        © 2024 Maj Færgemann. All rights reserved.
+      </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

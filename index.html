@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home page | Maj Færgemann</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="main-layout"> <!-- Overall layout for navigation and content -->
+
+    <!-- Navigtion bar on left -->
+    <div class="nav">
+      <h1>MAJ<br>FÆRGEMANN</h1>
+      <div class="nav-item"><a href="index.html">HOME PAGE</a></div>
+      <div class="nav-item"><a href="archive.html">ARCHIVE</a></div>
+    </div>
+
+        <!-- STICKY NAVIGATION FOR MOBILE/TABLET -->
+    <div class="sticky-nav">
+      <div class="nav-item"><a href="index.html">HOME PAGE</a></div>
+      <div class="nav-item"><a href="archive.html">ARCHIVE</a></div>
+    </div>
+
+    <div class="content"> <!--Main content-->
+      <div class="main-layout"> <!--Main layout-->
+        <div class="about">
+          <h3>Welcome to the website!!</h3>
+          <b> Here you will find information about ongoing projects, invitations to upcomming stuff and an archive over
+            things i have made or been a part off. You can also sign up for a newsletter to recive invitations on
+            email.</b>
+        </div>
+        <div class="newslettercontainer">
+          <h3 style="color: brown; font-style: normal;">Sign up for the newsletter Here</h3>
+          <!-- Checkbox for agreement -->
+          
+          <form action="#" method="POST" class="newsletter-form" id="newsletter-form">
+            <label> <input type="checkbox" required>
+           <b> I agree to receive emails about news and events. Your email will not be shared. </b>
+          </label> <br style="margin-bottom: 10px;">
+          <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+        </div>
+        <!-- Custom Modal Popup -->
+        <div id="newsletter-modal" class="modal-popup">
+          <div class="modal-popup-outer">
+          <!-- Modal content -->
+          <div class="modal-popup-content">
+            <div class="modal-popup-titlebar">
+              Sign up for the newsletter
+            </div>
+            <div class="modal-popup-body">
+              <p style="margin: 0 0 10px 0; font-size: 12px; font-weight: normal;">Sign up form is temporarily not working
+              <br>
+              Please write an email to <a href="mailto:mafaerge@gmail.com" style="color: blue;">mafaerge@gmail.com</a> to sign up for the newsletter.</p>
+            </div>
+                  <div class="modal-popup-footer" style="width:100%; display:flex; justify-content:center; padding: 12px 0 10px 0;">
+        <button id="modal-ok" class="modal-popup-ok">OK</button>
+      </div>
+          </div> <!--End of modal content-->
+          </div> <!--End of modal popup outer-->
+        </div>
+      </div> <!--End of main layout-->
+
+      <hr>
+      <h3 style="margin-bottom: 30px;">Links to other pages:</h3>
+
+      <div class="main-layout"> <!--Main layout for logo -->
+
+        <a href="https://spradio.neocities.org/" class="logo-link" target="_blank" rel="noopener noreferrer">
+          <img src="index_content/logoudenbgg.svg" alt="Logo" class="logo">
+        </a><span class="logo-tooltip" id="logo-tooltip">Go to spRadio's website!</span>
+
+      </div> <!--End of main layout-->
+
+      <div class="footer">
+        © 2025 Maj Færgemann. All rights reserved. <div class="date">Last updated: <span id="last-modified"></span>
+        </div>
+      </div>
+
+    </div> <!-- End of main content-->
+
+
+  </div> <!-- End of  overall layout for navigation and content -->
+
+
+
+  <script>
+    // ========================================
+    // LOGO TOOLTIP FUNCTIONALITY
+    // ========================================
+    // This script creates a hover tooltip that follows the mouse cursor
+    // when hovering over the spRadio logo link
+    
+    // GET ELEMENTS: Logo link and tooltip elements
+    const logoLink = document.querySelector('.logo-link');
+    const tooltip = document.getElementById('logo-tooltip');
+    
+    // EVENT: Mouse movement over logo - show and position tooltip
+    logoLink.addEventListener('mousemove', function (e) {
+      tooltip.style.display = 'block'; // Make tooltip visible
+      
+      // POSITIONING: Follow mouse cursor with small offset
+      tooltip.style.left = (e.clientX + 15) + 'px'; // 15px right of cursor
+      tooltip.style.top = (e.clientY + 10) + 'px';  // 10px below cursor
+    });
+    
+    // EVENT: Mouse leaves logo - hide tooltip
+    logoLink.addEventListener('mouseleave', function () {
+      tooltip.style.display = 'none'; // Hide tooltip
+    });
+
+    // ========================================
+    // NEWSLETTER FORM MODAL POPUP
+    // ========================================
+    // This script handles the newsletter signup form submission
+    // Shows a modal popup instead of actually sending the form
+    
+    // GET ELEMENTS: Form, modal, and OK button
+    const newsletterForm = document.getElementById('newsletter-form');
+    const modal = document.getElementById('newsletter-modal');
+    const modalOk = document.getElementById('modal-ok');
+    
+    // EVENT: Form submission - show modal instead of sending
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submission
+      modal.style.display = 'flex'; // Show the modal popup
+    });
+    
+    // EVENT: OK button click - close modal
+    modalOk.addEventListener('click', function() {
+      modal.style.display = 'none'; // Hide the modal popup
+    });
+  </script>
+
+  <!-- JAVA script for last modified date-->
+  <script>
+    // ========================================
+    // LAST MODIFIED DATE DISPLAY
+    // ========================================
+    // This script automatically updates the "Last updated" date in the footer
+    // It gets the file's last modification date and formats it nicely
+    
+    // GET MODIFICATION DATE: Browser provides document.lastModified automatically
+    const modifiedDate = new Date(document.lastModified);
+    
+    // FORMAT OPTIONS: Configure how the date should be displayed
+    const options = { 
+      year: 'numeric',    // Show full year (2025)
+      month: 'long',      // Show full month name (January)  
+      day: 'numeric'      // Show day number (15)
+    };
+    
+    // UPDATE FOOTER: Find the span with ID "last-modified" and update its text
+    document.getElementById("last-modified").textContent = 
+      modifiedDate.toLocaleDateString('en', options); // Format in English
+  </script>
+
+  <!-- MOBILE ENHANCEMENT: Better touch interaction -->
+  <script>
+    // ========================================
+    // MOBILE TOUCH ENHANCEMENTS
+    // ========================================
+    // This script improves the mobile experience for the home page
+    
+    // MODAL ENHANCEMENT: Close modal when clicking outside content
+    if ('ontouchstart' in window) {
+      const modal = document.getElementById('newsletter-modal');
+      
+      modal.addEventListener('click', function(e) {
+        // CLICK OUTSIDE: Close modal if clicking on background
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // PREVENT BOUNCE: Disable scroll bounce on iOS
+      document.body.addEventListener('touchmove', function(e) {
+        if (e.target === document.body) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    }
+  </script>
+
+
+
+</body>
+
+</html>

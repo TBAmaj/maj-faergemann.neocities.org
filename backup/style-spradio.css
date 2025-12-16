@@ -1,0 +1,111 @@
+/* fællesregler */
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+html{
+    /* background-image: url('images/car_radio.gif');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #FFF;
+}
+#wrapper{
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*height: 100vh; /* Ensure the body takes the full height of the viewport */
+    margin: 20px 0; /* Remove default margin */
+    color: #000;
+    text-align: center;
+}
+.flexcontainer{
+    display: flex;
+}
+.gridcontainer{
+    display: grid;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/RADIOLAND.TTF') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    display: none;
+    font-family: 'MyCustomFont';
+    font-size: 3em;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+             1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+#mixlrPlayer{
+    width: 100%;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg) scaleX(0);
+    }
+    50%{
+        transform: rotate(360deg) scaleX(8);
+    }
+    100%{
+        transform: rotate(720deg) scaleX(0);
+    }
+}
+
+#megaphone{
+    color: #FFF;
+    margin-top: 20px;
+    animation: rotate 50s linear infinite;
+}
+
+@keyframes smoothTransform {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    10% {
+        transform: scale(1.05) rotate(10deg);
+    }
+    20%{
+        transform: scale(1.1) rotate(-10deg);
+    }
+    30%{
+        transform: scale(0.8) rotate(0deg);
+    }
+    70%{
+        transform: scale(1.15) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+#logo {
+    animation: smoothTransform 1s infinite ease-in-out;
+    height: auto;
+    width: 100%;
+}

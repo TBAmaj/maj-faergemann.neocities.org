@@ -1,0 +1,1026 @@
+/* #region all pages */
+/* === Reset & basics === */
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    background: #fff;
+    color: #000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    min-height: 100vh;
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: row;
+    /* Stack content vertically */
+    min-height: 0;
+    /* Prevents flex items from overflowing */
+}
+
+/* === Layout Navigation bar & Content === */
+.nav {
+    width: 210px;
+    border-right: 1px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    /* Prevents nav from shrinking */
+}
+
+.nav-item {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* === Typography === */
+h1,
+h2,
+h3 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0 0 40px 0;
+    letter-spacing: 2px;
+
+
+}
+
+h2 {
+    font-size: 20px;
+    margin: 30px 0 10px 0;
+    border-bottom: 1px solid #000000;
+    text-transform: lowercase;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 30px 0 10px 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+b {
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 100px;
+
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 20px 0;
+}
+
+/* === Utilities + footer === */
+.footer {
+    margin-top: 50px;
+    font-size: 10px;
+    text-align: center;
+    border-top: 1px solid #000000;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.template {
+    display: none;
+}
+
+/* #endregion all pages */
+
+/* #region home page */
+
+.about {
+    width: 210px;
+    padding-right: 20px;
+}
+
+.newslettercontainer {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #000;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    height: auto;
+    width: 200px;
+}
+
+
+.logo-link {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-tooltip {
+    display: none;
+    position: fixed;
+    pointer-events: none;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 2px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.logo-link:hover .logo-tooltip {
+    display: block;
+}
+
+.logo-link {
+    position: relative;
+    display: inline-block;
+}
+
+.logo:hover {
+    animation: smoothTransform 1s infinite ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes smoothTransform {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    20% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    30% {
+        transform: scale(0.8) rotate(0deg);
+    }
+
+    70% {
+        transform: scale(1.15) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Custom Modal Popup for newsletter */
+
+.modal-popup-outer {
+    border-width: 1.5px 2px 2px 1.5px;
+    border-style: solid;
+    border-color: #b9b9b9 #000 #000 #b9b9b9;
+    /* top right bottom left */
+}
+
+.modal-popup {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 60%);
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Windows XP style modal popup */
+.modal-popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 350px;
+    min-width: 260px;
+    background: #b9b9b9;
+    color: #000;
+    padding: 0;
+    position: relative;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff #828282 #828282 #fff;
+    /* top right bottom left */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Verdana, Segoe, sans-serif;
+}
+
+.modal-popup-titlebar {
+    width: 100%;
+    background-color: #000080;
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #b9b9b9;
+    box-sizing: border-box;
+}
+
+.modal-popup-ok {
+    min-width: 70px;
+    padding: 4px 18px;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Verdana, Segoe, sans-serif;
+    background: #b9b9b9;
+    border-width: 1.5px 2px 2px 1.5px;
+    border-style: solid;
+    border-color: #fff #000 #000 #fff;
+    /* top right bottom left */
+    ;
+    color: #000;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.modal-popup-ok:hover {
+    background: #b9b9b9;
+    border-width: 2px 1.5px 1.5px 2px;
+    border-style: solid;
+    border-color: #000 #828282 #828282 #000;
+}
+
+.modal-popup-body {
+    padding: 18px 18px 12px 18px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+/* #endregion home page */
+
+/* #region archive page */
+
+/* === Gallery === */
+.gallery {
+    display: flex;
+    flex-direction: row;
+    /* Stack children horizontally */
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    /* Allows wrapping to next line if needed */
+}
+
+.artwork {
+    flex: 0 0 200px;
+    max-width: 200px;
+    margin-bottom: 40px;
+    padding: 5px;
+    position: relative;
+}
+
+.artwork img,
+.artwork video {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    /* Keeps vertical shape consistent */
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* === Slideshow === */
+.slideshow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y; /* Allow vertical scrolling only */
+    user-select: none; 
+}
+
+
+
+.slideshow:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+/* SLIDES CONTAINER: Flex layout for horizontal sliding (created by JavaScript) */
+.slides-container {
+    display: flex;
+    width: 100%; /* Will be overridden by JavaScript to accommodate all slides */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    height: 100%; /* Take full height of slideshow */
+}
+
+/* INDIVIDUAL SLIDES: When inside slides-container */
+.slides-container .mySlides {
+    flex: 0 0 auto; /* Don't grow or shrink, use content size */
+    width: 100%; /* Will be overridden by JavaScript based on slide count */
+    display: block !important; /* Override active/inactive display logic */
+    position: relative;
+}
+
+/* IMAGES AND VIDEOS: Prevent dragging and maintain aspect ratio */
+.slides-container .mySlides img,
+.slides-container .mySlides video {
+    pointer-events: none; /* Prevent image dragging during swipe */
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mySlides {
+    height: 500px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+}
+
+.mySlides.active {
+    display: block;
+}
+
+.mySlides img,
+.mySlides video,
+.mySlides iframe {
+    max-width: 100%;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.artwork .slideshow {
+    max-width: 400px;
+    max-height: 500px;
+    overflow: hidden;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+    /* Keeps vertical shape consistent */
+}
+
+
+/* Slideshow Captions */
+.caption {
+    position: relative;
+    font-size: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.caption-text {
+    line-height: 1.4em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    opacity: 0;
+}
+
+.caption-text.loaded {
+    opacity: 1;
+}
+
+.view-more {
+    color: #007bff;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.caption-h1 {
+    margin-top: 5px;
+    font-size: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+
+.slideshow-controls .prev,
+.slideshow-controls .next {
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0 10px;
+    user-select: none;
+}
+
+.slideshow-controls .prev:hover {
+    text-decoration: underline;
+}
+
+.slideshow-controls .next:hover {
+    text-decoration: underline;
+}
+
+/* slideshow controls gone */
+.slideshow-controls-gone {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+
+.slideshow-controls-gone .prev,
+.slideshow-controls-gone .next {
+    font-size: 14px;
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0 10px;
+    user-select: none;
+}
+
+/* Slideshow pop up screen */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    text-align: center;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 80vh;
+    margin: auto;
+}
+
+.modal-content img,
+.modal-content video,
+#modal-img,
+#modal-video {
+    width: auto;
+    height: 80vh;
+    max-width: 90vw;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-prev,
+.modal-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+#audio-controls {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    z-index: 1001;
+}
+
+#audio-toggle {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+#audio-toggle:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Prevent user selection on slideshow elements */
+.slideshow,
+.slideshow *,
+.modal,
+.modal *,
+.nav,
+.nav * {
+    user-select: none;
+}
+
+/* #endregion archive page */
+
+/* ========================================= */
+/* #region RESPONSIVE DESIGN - MOBILE & TABLET */
+/* ========================================= */
+
+/* DESKTOP: Hide sticky nav, show regular nav */
+@media screen and (min-width: 767px) {
+    .sticky-nav {
+        display: none;
+    }
+    .sticky-nav-container {
+        display: none;
+    }
+
+    .nav .nav-item {
+        display: block !important;
+    }
+}
+
+
+
+
+/* MOBILE STYLES (up to 767px) */
+@media screen and (max-width: 767px) {
+
+    /* LAYOUT: Stack navigation vertically on mobile */
+    .main-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    /* NAVIGATION: Full width, horizontal layout */
+    .nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 2px solid #000;
+        text-align: center;
+        flex-shrink: 0;
+        background: #fff;
+        z-index: 100;
+    }
+
+    .nav h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        line-height: 1.1;
+        background: #fff;
+
+    }
+
+    /* STICKY NAVIGATION BAR */
+    .sticky-nav-container {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 2px solid #000;
+        text-align: center;
+        flex-shrink: 0;
+        background: #fff;
+        z-index: 100;
+        font-size: 20px;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+    
+    .sticky-nav {
+        position: sticky;
+        top: -10px;
+        width: 100%;
+        background: #fff;
+        border-bottom: 2px solid #000;
+        padding: 10px 15px;
+        text-align: center;
+        z-index: 200;
+        display: block;
+        margin: 0;
+        box-sizing: border-box;
+        
+        /* Add extra background coverage */
+        background-clip: padding-box;
+        border-top: 1px solid #fff; /* Extra white coverage above */
+    }
+        .sticky-nav::before {
+        content: '';
+        position: absolute;
+        top: -10px; /* Extend above the navigation */
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: #fff;
+        z-index: -1;
+        border: #fff 10px solid;
+    }
+
+    .sticky-nav .nav-item {
+        display: inline-block;
+        margin: 0;
+             background: #fff;
+    }
+
+    .sticky-nav .nav-item a {
+        font-size: 14px;
+        padding: 8px 12px;
+        display: inline-block;
+        font-weight: bold;
+             background: #fff;
+    }
+
+    /* Hide original nav items in header */
+    .nav{
+        display: none;
+    }
+
+
+    /* CONTENT: Full width, no left margin */
+    .content {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .content h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .content h3 {
+        font-size: 16px;
+    }
+
+    /* GALLERY */
+    .gallery {
+        display: block;
+        width: 100%;
+        padding: 0 15px;
+        margin: 0;
+    }
+
+    .artwork {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 30px 0;
+        padding: 0;
+        display: block;
+       height: auto;
+       box-sizing: border-box;
+    }
+
+    /* SLIDESHOW: Smaller height for mobile */
+    .slideshow {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 15px auto;
+        display: block;
+         -webkit-overflow-scrolling: touch;
+        transform: translateZ(0); /* Hardware acceleration */
+
+    }
+
+    .slides-container {
+        transform: translateZ(0); /* Hardware acceleration */
+        backface-visibility: hidden;
+    }
+    
+    .slides-container .mySlides {
+        transform: translateZ(0); /* Hardware acceleration */
+    }
+    
+    /* Maintain tall aspect ratio on mobile */
+    .slides-container .mySlides img,
+    .slides-container .mySlides video {
+        aspect-ratio: 4/5; /* Keep the tall format */
+        max-height: 60vh;
+        min-height: 200px;
+    }
+}
+
+/* PERFORMANCE OPTIMIZATIONS: Hardware acceleration */
+.slideshow,
+.slides-container,
+.slides-container .mySlides {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* ENSURE ORIGINAL SLIDES STILL WORK: When not using touch functionality */
+.slideshow:not(:has(.slides-container)) .mySlides {
+    /* Fallback styles for browsers that don't support touch or when JS doesn't run */
+    display: none;
+}
+
+.slideshow:not(:has(.slides-container)) .mySlides.active {
+    display: block;
+
+    .mySlides{
+        height: auto;
+        display: none;
+        width: 100%;
+        aspect-ratio: 4/5; /* Maintain tall format */
+    }
+
+    .mySlides.active {
+        display: block;
+    }
+
+    .mySlides img,
+    .mySlides video,
+    .mySlides iframe {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        object-position: center; 
+        aspect-ratio: 4/5; /* Maintain consistent ratio */
+        max-height: 70vh; /* Limit height on mobile */
+        min-height: 200px; /* Minimum readable size */
+    }
+
+    /* Remove the fixed aspect ratio container */
+    .artwork .slideshow {
+        aspect-ratio: 4/5; /* Maintain the tall format */
+        max-height: 70vh; /* Limit container height on mobile */
+        width: 100%;
+        margin: 0 auto 15px auto;
+    }
+
+     .slideshow {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 15px auto;
+        display: block;
+        aspect-ratio: 4/5; /* Ensure slideshow keeps tall format */
+    }
+
+    /* SLIDESHOW CONTROLS: Larger touch targets */
+    .slideshow-controls {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .prev,
+    .next {
+        padding: 12px 16px;
+        font-size: 16px;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: 4px;
+        flex: 0 0 auto;
+    }
+
+    .prev:hover,
+    .next:hover {
+        transform: scale(1.05);
+    }
+
+    /* CAPTIONS: Smaller, more readable */
+    .caption-h1 {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .caption {
+        margin-top: 10px;
+        margin-bottom: 100px;
+        padding: 0;
+        font-size: 12px;
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    .view-more {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin-left: 4px;
+    }
+
+    /* MODAL: Full screen on mobile */
+ 
+    .close {
+        position: fixed;
+        font-size: 28px;
+        top: 20px;
+        right: 20px;
+        padding: 5px 10px;
+        z-index: 1002;
+        color: #fff;
+    }
+
+    .modal-prev,
+    .modal-next {
+        position: fixed;
+        font-size: 20px;
+        padding: 15px 20px;
+        min-width: 60px;
+        min-height: 60px;
+        background: none;
+        border-radius: 50%;
+        z-index: 1002;
+        color: #fff;
+        bottom: 30px;
+        top: auto;
+        transform: none;
+    }
+
+    .modal-prev {
+        left: 10px;
+    }
+
+    .modal-next {
+        right: 10px;
+    }
+
+    /* AUDIO CONTROLS: Repositioned for mobile */
+    #audio-controls {
+        top: 10px;
+        right: 60px;
+    }
+
+    #audio-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    /* HOME PAGE SPECIFIC: Newsletter form */
+    .newslettercontainer {
+        padding: 15px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .newsletter-form input[type="email"] {
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .newsletter-form label {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* MODAL POPUP: Better mobile sizing */
+    .modal-popup {
+        padding: 20px;
+    }
+
+    .modal-popup-content {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .modal-popup-body {
+        font-size: 12px;
+        padding: 15px;
+    }
+
+    /* LOGO: Responsive sizing */
+    .logo {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .logo-tooltip {
+        font-size: 12px;
+        max-width: 200px;
+    }
+
+    /* ABOUT SECTION: Better mobile formatting */
+    .about {
+        margin-bottom: 20px;
+    }
+
+    .about h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .about b {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    /* FOOTER: Mobile friendly */
+    .footer {
+        text-align: center;
+        font-size: 11px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .date {
+        margin-top: 5px;
+    }
+}
+
+
+/* #endregion RESPONSIVE DESIGN - MOBILE & TABLET */

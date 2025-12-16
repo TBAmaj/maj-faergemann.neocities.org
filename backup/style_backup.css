@@ -1,0 +1,246 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.5;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td {
+    vertical-align: top;
+    padding: 10px;
+  }
+  
+  .nav {
+    width: 150px;
+    border-right: 1px solid #000000;
+    height: 100vh;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  h1, h2, h3 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin: 30px 0 10px 0;
+    border-bottom: 1px solid #000000;
+  }
+  
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .nav-item {
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .artwork {
+    margin-bottom: 40px;
+  }
+  
+  .artwork img {
+    border: 1px solid #000000;
+    max-width: 100%;
+  }
+  
+  .caption {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .footer {
+    margin-top: 50px;
+    font-size: 10px;
+    text-align: center;
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+  }
+  
+  .statement {
+    margin: 30px 0;
+    font-size: 14px;
+    max-width: 600px;
+  }
+  
+  .date {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Portfolio page styles */
+  .gallery {
+    display: table;
+    width: 100%;
+  }
+
+  .artwork {
+    display: inline-block;
+    width:  20%;
+    margin-right: 3%;
+    margin-bottom: 40px;
+    vertical-align: top;
+  }
+  
+
+  .filter {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  
+  .filter a {
+    margin-right: 15px;
+  }
+  
+  .series {
+    margin-bottom: 60px;
+  }
+  
+  .series-title {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .series-desc {
+    font-size: 14px;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  /* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+}
+
+  /* CV page styles */
+  .cv-section {
+    margin-bottom: 40px;
+  }
+  
+  .cv-item {
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .cv-year {
+    font-style: italic;
+  }
+  
+  .download {
+    margin: 20px 0;
+    font-size: 12px;
+  }
+  
+  .bio {
+    font-style: italic;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  
+  /* Contact page styles */
+  .contact-info {
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  
+  .contact-item {
+    margin-bottom: 10px;
+  }
+  
+  form {
+    margin-top: 20px;
+    max-width: 500px;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    border: 1px solid #000000;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+  }
+  
+  .map-placeholder {
+    border: 1px solid #000000;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 14px;
+  }
+  
+  .newsletter {
+    margin-top: 40px;
+    max-width: 500px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .newsletter-form input {
+    flex: 1;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  
+  .newsletter-form button {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+  }

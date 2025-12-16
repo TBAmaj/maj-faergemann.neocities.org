@@ -1,0 +1,293 @@
+
+body, html {
+  margin: 0; padding: 0; height: 100%;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.nav {
+  width: 150px;
+  border-right: 1px solid #000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+h1,
+h2,
+h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 30px 0 10px 0;
+  border-bottom: 1px solid #000000;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav-item {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.artwork img {
+  border: 1px solid #000000;
+  max-width: 100%;
+}
+
+.caption {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.footer {
+  margin-top: 50px;
+  font-size: 10px;
+  text-align: center;
+  border-top: 1px solid #000000;
+  padding-top: 10px;
+}
+
+.statement {
+  margin: 30px 0;
+  font-size: 14px;
+  max-width: 600px;
+}
+
+.date {
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+/* Portfolio page styles */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.artwork {
+  flex: 1 1 calc(33.333% - 20px);
+  /* 3 per row on large screens */
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+/* Stack 2 per row when window < 1000px */
+@media (max-width: 1000px) {
+  .artwork {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* Stack 1 per row when window < 700px */
+@media (max-width: 700px) {
+  .artwork {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.mySlides {
+  width: 100%;
+  display: none; /* default hidden */
+}
+.mySlides:first-child {
+  display: block; /* show first slide initially */
+}
+
+.mySlides img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  user-select: none;
+  z-index: 2;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+.filter {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.filter a {
+  margin-right: 15px;
+}
+
+.series {
+  margin-bottom: 60px;
+}
+
+.series-title {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.series-desc {
+  font-size: 14px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+/* CV page styles */
+.cv-section {
+  margin-bottom: 40px;
+}
+
+.cv-item {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.cv-year {
+  font-style: italic;
+}
+
+.download {
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.bio {
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* Contact page styles */
+.contact-info {
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.contact-item {
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  border: 1px solid #000000;
+}
+
+textarea {
+  height: 150px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+.map-placeholder {
+  border: 1px solid #000000;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.newsletter {
+  margin-top: 40px;
+  max-width: 500px;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+.newsletter-form button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
