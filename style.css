@@ -439,6 +439,10 @@ hr {
     opacity: 1;
 }
 
+.link {
+    color: #0253a9
+}
+
 .view-more {
     color: #007bff;
     text-decoration: underline;
