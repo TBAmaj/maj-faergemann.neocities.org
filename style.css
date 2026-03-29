@@ -583,13 +583,16 @@ hr {
 
 #audio-controls {
     position: absolute;
-    top: 60px;
-    right: 60px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1001;
+    display: flex;
+    justify-content: center;
 }
 
 #audio-toggle {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     border: none;
     color: white;
     font-size: 20px;
@@ -601,7 +604,39 @@ hr {
 }
 
 #audio-toggle:hover {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.modal-player {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    background: rgba(255, 255, 255, 0);
+    padding: 6px 60px;
+    border-radius: 4px;
+}
+
+.modal-player #audio-seek {
+    flex: 1;
+    appearance: none;
+    height: 6px;
+    background: #ffffff35;
+    border-radius: 3px;
+}
+
+.modal-player button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.modal-player span {
+    font-size: 12px;
+    color: white;
+    min-width: 36px;
+    text-align: center;
 }
 
 /* Prevent user selection on slideshow elements */
